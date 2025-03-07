@@ -1,0 +1,84 @@
+html { font-size: 14px; }
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: #282a36;
+    color: #f8f8f2;
+    font-family: Rubik, sans-serif;
+}
+h1 {
+    font-size: 3rem;
+    line-height: 1;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+#MainContainer{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+#DynamicTable {
+    border-color: #de1614;
+    color: #f8f8f2;
+}
+
+.tableInput {
+    border-radius: 6px;
+    border: none;
+    height: 3.6rem;
+    width: -webkit-fill-available;
+    font-size: 2rem;
+    background-color: #323440;
+    outline: none;
+    color: #f8f8f2;
+}
+.subjectInput {
+    border-radius: 6px;
+    border: none;
+    width: -webkit-fill-available;
+    font-size: 1rem;
+    background-color: #ffffff0a;
+    outline: none;
+    color: #f8f8f2;
+    padding: .5rem;
+}
+#subjectFrm .table, #dynamicTableContanier .table{
+    color: #f8f9fa;
+}
+input::placeholder {
+    color: #b3b3b3;
+    font-weight: 700;
+    text-align: center;
+}
+.applyBtn {
+    padding: .6rem 3.5rem;
+    font-weight: 800;
+}
+
+#messageDiv {
+    background-color: #4eb7b654;
+    width: fit-content;
+    padding: .3rem 2rem;
+    border-radius: 10px;
+    font-weight: 600;
+    margin: auto;
+}

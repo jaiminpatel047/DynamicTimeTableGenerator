@@ -1,0 +1,56 @@
+﻿@model InputModel
+
+<div>
+    <div class="text-center">
+        <h1 id="mainTitle">Timetable Generator : Plan Your Day</h1>
+        <p id="messageDiv">✨ Create Your Perfect Schedule in Minutes ✨</p>
+    </div>
+    <form id="generateTbl">
+        <div class="row mt-5">
+            <div class="col-4">
+                <span class="text-muted">No of Working days</span>
+                <select asp-for="WorkingDays" class="tableInput px-3" onchange="totalHours()">
+                    <option value="1">One Day</option>
+                    <option value="2">Two Day</option>
+                    <option value="3">Three Day</option>
+                    <option value="4">Four Day</option>
+                    <option value="5">Five Day</option>
+                    <option value="6">Six Day</option>
+                    <option value="7">Seven Day</option>
+                </select>
+                <span asp-validation-for="WorkingDays" class="text-danger"></span>
+            </div>
+
+            <div class="col-4">
+                <span class="text-muted">No Of Subject Per Day</span>
+                <select asp-for="SubjectsPerDay" class="tableInput px-3" onchange="totalHours()">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                </select>
+                <span asp-validation-for="SubjectsPerDay" class="text-danger"></span>
+            </div>
+            <div class="col-4">
+                <span class="text-muted">Total Subject</span>
+                <input asp-for="TotalSubjects" class="tableInput px-3" placeholder="Total Subject" />
+                <span asp-validation-for="TotalSubjects" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="text-center">
+            <span type="button" class="btn btn-success applyBtn mt-4" onclick="Inset()">Plan</span>
+        </div>
+    </form>
+    <div id="subjectContainer"></div>
+    <div id="dynamicTableContanier"></div>
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

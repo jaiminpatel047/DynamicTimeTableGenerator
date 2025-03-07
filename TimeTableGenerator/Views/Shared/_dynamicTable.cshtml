@@ -1,0 +1,51 @@
+﻿@model InputModel
+
+<div class="mt-5" id="tableContainer">
+    <form id="subjectFrm">
+        <input asp-for="WorkingDays" hidden/>
+        <input asp-for="SubjectsPerDay" hidden />
+        <input asp-for="SubjectsPerDay" hidden />
+        <input asp-for="TotalSubjects" hidden />
+        <input asp-for="TotalHours" hidden />
+     <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Subject Name</th>
+                <th scope="col">Hours</th>
+            </tr>
+        </thead>
+        <tbody>
+                @if (Model.TotalSubjects > 0)
+                {
+                    int count = 1;
+                    for (int i = 0; i < Model.TotalSubjects; i++)
+                    {
+                    <tr>
+                        <th scope="row">@(i + 1)</th>
+                        <td>
+                            <input asp-for="Subject[i].Name" class="subjectInput subject" placeholder="Subject" />
+                        </td>
+                        <td>
+                            <input asp-for="Subject[i].Hours" class="subjectInput hours" placeholder="Hours" />
+                        </td>
+                    </tr>
+                        count = count + 1;
+                    }
+                    <span asp-validation-for="TotalSubjects" class="text-danger"></span>
+                }
+                else
+                {
+                <spam>No Data fountd</spam>
+                }
+            
+        </tbody>
+    </table>
+    </form>
+    <div class="text-center">
+        <span type="button" class="btn btn-success applyBtn mt-4" onclick="SubmitSubjects()">Submit</span>
+        <span type="button" class="btn btn-danger applyBtn mt-4" onclick="Reset()">Reset</span>
+    </div>
+</div>
+
+

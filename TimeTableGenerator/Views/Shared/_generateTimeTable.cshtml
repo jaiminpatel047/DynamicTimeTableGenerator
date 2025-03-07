@@ -1,0 +1,43 @@
+﻿@model InputModel
+@{
+    var subjectPool = Model.Subject.SelectMany(subject => Enumerable.Repeat(subject.Name, subject.Hours)).ToList();
+    var random = new Random();
+    subjectPool = subjectPool.OrderBy(x => random.Next()).ToList();
+}
+
+<div class="mt-5">
+    @if (Model.WorkingDays != 0 && Model.SubjectsPerDay != 0 && Model != null)
+    {
+        <table class="table mt-5">
+            <thead>
+                <tr>
+                    @for (int i = 0; i < Model.WorkingDays; i++)
+                    {
+                        <th scope="col">@(i + 1) Day</th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.SubjectsPerDay; i++)
+                {
+                    <tr>
+                        @for (int j = 0; j < Model.WorkingDays; j++)
+                        {
+                            var subject = subjectPool.First();
+                            subjectPool.RemoveAt(0);
+                            <td>@subject.ToUpper()</td>
+                        }
+                    </tr>
+                }
+                
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <span>No Time Table Show</span>
+    }
+    <div class="text-center">
+        <span type="button" class="btn btn-danger applyBtn mt-4" onclick="Reset()">Reset</span>
+    </div>
+</div>

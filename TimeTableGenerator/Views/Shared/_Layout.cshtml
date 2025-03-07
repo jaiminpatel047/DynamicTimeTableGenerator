@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TimeTable Generator</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/TimeTableGenerator.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="container" id="MainContainer">
+        @RenderBody()
+    </div>
+    
+    <div class="container">
+        <footer class="py-3 my-0">
+            <p class="text-center text-muted m-0">Made By&nbsp;🧿&nbsp;<a href="#" class="underline text-white" target="_blank" rel="noopener noreferrer">Patel Jaimin</a></p>
+        </footer>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/notify.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
